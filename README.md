@@ -107,35 +107,35 @@ A metodologia seguirá um pipeline padrão e robusto de Machine Learning, adapta
 
 Para a tarefa de classificação de séries temporais de movimentos de LIBRAS, as seguintes técnicas do seu conteúdo programático são as mais adequadas e serão exploradas:
 
-### 1. Redes Neurais e Deep Learning (7.1 Redes Neurais, 7.2 Deep Learning)
+### 1. Redes Neurais e Deep Learning
 
 *   **Justificativa:** Dada a natureza sequencial e a complexidade dos dados (movimentos de LIBRAS), as Redes Neurais Recorrentes (RNNs), especialmente as variantes LSTM (Long Short-Term Memory), são a escolha mais natural e potente. Elas são projetadas para processar dados onde a ordem e as dependências temporais são cruciais, o que é exatamente o caso de uma sequência de movimentos.
 *   **Implementação:** Utilizaremos a API Keras (TensorFlow).
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 15: "Processing Sequences Using RNNs and CNNs", Capítulo 11: "Training Deep Neural Networks") e *DeepLearningArchitetures.pdf* (Section 12.2: "Recurrent Neural Networks", Section 17: "Recurrent Neural Networks", Section 12.2.6: "Long-Term Dependencies and LSTM RNN").
+*   **Referência:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 15: "Processing Sequences Using RNNs and CNNs", Capítulo 11: "Training Deep Neural Networks") e *DeepLearningArchitetures.pdf* (Section 12.2: "Recurrent Neural Networks", Section 17: "Recurrent Neural Networks", Section 12.2.6: "Long-Term Dependencies and LSTM RNN").
 
-### 2. Modelos Não-Lineares: Support Vector Machines (SVMs) (6.2 Support Vector Machines)
+### 2. Modelos Não-Lineares: Support Vector Machines (SVMs)
 
 *   **Justificativa:** SVMs são classificadores robustos e eficazes, especialmente com o "kernel trick" (kernel RBF), que permite capturar relações não-lineares nos dados de alta dimensionalidade. Servirão como uma poderosa *baseline* não-linear.
 *   **Implementação:** Utilizaremos a biblioteca Scikit-learn.
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 5: "Support Vector Machines"), *Murphy_Machine_Learning.pdf* (Capítulo 14: "Support Vector Machines"), *Statistical Inference and Machine Learning for Big Data.pdf* (Capítulo 11.5.5: "Support Vector Machines (SVM)").
+*   **Referência:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 5: "Support Vector Machines"), *Murphy_Machine_Learning.pdf* (Capítulo 14: "Support Vector Machines"), *Statistical Inference and Machine Learning for Big Data.pdf* (Capítulo 11.5.5: "Support Vector Machines (SVM)").
 
-### 3. Modelos Não-Lineares: Trees, Random Forests (6.1 Trees, Random Forests)
+### 3. Modelos Não-Lineares: Trees, Random Forests
 
 *   **Justificativa:** Random Forests são um método de *ensemble* robusto, capaz de lidar com dados de alta dimensionalidade e menos sensíveis ao *overfitting* do que árvores individuais. Oferecem uma excelente *baseline* de *ensemble* não-linear.
 *   **Implementação:** Utilizaremos a biblioteca Scikit-learn.
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 6: "Decision Trees", Capítulo 7: "Ensemble Learning and Random Forests"), *Murphy_Machine_Learning.pdf* (Capítulo 16, Section 16.2: "Random Forests").
+*   **Referência:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 6: "Decision Trees", Capítulo 7: "Ensemble Learning and Random Forests"), *Murphy_Machine_Learning.pdf* (Capítulo 16, Section 16.2: "Random Forests").
 
-### 4. Modelos Lineares: Regressão Logística (3.2 Regressão Logística)
+### 4. Modelos Lineares: Regressão Logística
 
 *   **Justificativa:** Servirá como um **modelo de *baseline* linear, simples e interpretável**, fornecendo um ponto de comparação fundamental para avaliar o ganho de desempenho dos modelos mais complexos.
 *   **Implementação:** Utilizaremos a biblioteca Scikit-learn.
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 4: "Training Models"), *Statistical Inference and Machine Learning for Big Data.pdf* (Capítulo 11.5: "Logistic Regression"), *Murphy_Machine_Learning.pdf* (Capítulo 8, Section 8.1: "Logistic Regression").
+*   **Referência:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 4: "Training Models"), *Statistical Inference and Machine Learning for Big Data.pdf* (Capítulo 11.5: "Logistic Regression"), *Murphy_Machine_Learning.pdf* (Capítulo 8, Section 8.1: "Logistic Regression").
 
-### 5. Modelos Fatoriais e Redução de Dimensão: Análise de Componentes Principais (PCA) (5.2 Análise de Componentes Principais)
+### 5. Modelos Fatoriais e Redução de Dimensão: Análise de Componentes Principais (PCA)
 
 *   **Justificativa:** Dada a alta dimensionalidade dos dados (4050 atributos se achatados), a PCA pode ser aplicada para compactar as características, remover ruído e potencialmente melhorar o desempenho e a eficiência computacional dos modelos subsequentes (especialmente SVMs e Regressão Logística).
 *   **Implementação:** Utilizaremos a biblioteca Scikit-learn.
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 8: "Dimensionality Reduction"), *Murphy_Machine_Learning.pdf* (Capítulo 12, Section 12.3: "Principal Component Analysis"), *Statistical Inference and Machine Learning for Big Data.pdf* (Capítulo 4.3.1: "Principal Component Analysis").
+*   **Referência:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 8: "Dimensionality Reduction"), *Murphy_Machine_Learning.pdf* (Capítulo 12, Section 12.3: "Principal Component Analysis"), *Statistical Inference and Machine Learning for Big Data.pdf* (Capítulo 4.3.1: "Principal Component Analysis").
 
 ## Métricas de Avaliação
 
