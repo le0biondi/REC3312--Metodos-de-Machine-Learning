@@ -36,7 +36,8 @@ O repositório da UCI fornece o dataset principal e vários sub-datasets, que po
 *   `movement_libras_8.data`
 *   `movement_libras_9.data`
 *   `movement_libras_10.data`
-    Estes são sub-datasets que foram utilizados para experimentos específicos no artigo de pesquisa original. Eles contêm um subconjunto das instâncias do dataset principal e podem ser úteis para replicar resultados ou analisar o desempenho do modelo com menos dados.
+    
+Estes são sub-datasets que foram utilizados para experimentos específicos no artigo de pesquisa original. Eles contêm um subconjunto das instâncias do dataset principal e podem ser úteis para replicar resultados ou analisar o desempenho do modelo com menos dados.
 
 **Número de Instâncias:** 360 (24 em cada uma das quinze classes) para `movement_libras.data`. Os sub-datasets terão um número menor de instâncias.
 **Número de Atributos:** 90 numéricos (double) e 1 para a classe (inteiro)
