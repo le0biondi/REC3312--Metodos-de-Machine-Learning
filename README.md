@@ -153,6 +153,7 @@ Para a classificação multiclasse dos movimentos de LIBRAS, as seguintes métri
 
 ## Estrutura do Repositório GitHub
 
+´´´´
 ├── README.md # Documentação principal do projeto: visão geral, setup, execução, resultados, conclusões. 
 ├── requirements.txt # Lista de todas as dependências Python necessárias para o projeto. 
 ├── data/ # Diretório para hospedar os datasets. 
@@ -182,4 +183,7 @@ Para a classificação multiclasse dos movimentos de LIBRAS, as seguintes métri
 │ └── classification_report_svm_movement_libras_1.txt 
 │ └── # ... outros resultados 
 └── docs/ # Documentação adicional, relatórios mais detalhados, diagramas, etc. 
-└── methodology_details.md # Detalhes aprofundados da metodologia, justificativas de escolhas de modelo
+└── methodology_details.md # Detalhes aprofundados da metodologia, justificativas de escolhas de modelo´
+
+´´´´
+
