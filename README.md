@@ -156,11 +156,6 @@ Para a classificação multiclasse dos movimentos de LIBRAS, as seguintes métri
 ## Estrutura do Repositório GitHub
 
 ```
-Com certeza! A indentação é fundamental para a clareza visual da estrutura de diretórios em Markdown. O que você me passou está em uma única linha, o que impede a renderização correta.
-
-Aqui está a correção da indentação para a estrutura de diretórios, pronta para ser usada no seu `README.md` dentro de um bloco de código:
-
-```markdown
 .
 ├── README.md
 ├── requirements.txt
@@ -185,13 +180,95 @@ Aqui está a correção da indentação para a estrutura de diretórios, pronta 
 ├── trained_models/
 │   ├── rnn_model_movement_libras.h5
 │   ├── transformer_model_movement_libras.h5
+│   ├── svm_model_movement_libras.pkl
+│   ├── random_forest_model_movement_libras.pkl
+│   ├── logistic_regression_model_movement_libras.pkl
+│   ├── rnn_model_movement_libras_1.h5
+│   ├── transformer_model_movement_libras_1.h5
 │   ├── svm_model_movement_libras_1.pkl
-│   └── # ... outros modelos e datasets
+│   ├── random_forest_model_movement_libras_1.pkl
+│   ├── logistic_regression_model_movement_libras_1.pkl
+│   ├── rnn_model_movement_libras_5.h5
+│   ├── transformer_model_movement_libras_5.h5
+│   ├── svm_model_movement_libras_5.pkl
+│   ├── random_forest_model_movement_libras_5.pkl
+│   ├── logistic_regression_model_movement_libras_5.pkl
+│   ├── rnn_model_movement_libras_8.h5
+│   ├── transformer_model_movement_libras_8.h5
+│   ├── svm_model_movement_libras_8.pkl
+│   ├── random_forest_model_movement_libras_8.pkl
+│   ├── logistic_regression_model_movement_libras_8.pkl
+│   ├── rnn_model_movement_libras_9.h5
+│   ├── transformer_model_movement_libras_9.h5
+│   ├── svm_model_movement_libras_9.pkl
+│   ├── random_forest_model_movement_libras_9.pkl
+│   ├── logistic_regression_model_movement_libras_9.pkl
+│   ├── rnn_model_movement_libras_10.h5
+│   ├── transformer_model_movement_libras_10.h5
+│   ├── svm_model_movement_libras_10.pkl
+│   ├── random_forest_model_movement_libras_10.pkl
+│   └── logistic_regression_model_movement_libras_10.pkl
 ├── results/
 │   ├── confusion_matrix_rnn_movement_libras.png
+│   ├── classification_report_rnn_movement_libras.txt
 │   ├── confusion_matrix_transformer_movement_libras.png
-│   └── classification_report_svm_movement_libras_1.txt
-│   └── # ... outros resultados
+│   ├── classification_report_transformer_movement_libras.txt
+│   ├── confusion_matrix_svm_movement_libras.png
+│   ├── classification_report_svm_movement_libras.txt
+│   ├── confusion_matrix_random_forest_movement_libras.png
+│   ├── classification_report_random_forest_movement_libras.txt
+│   ├── confusion_matrix_logistic_regression_movement_libras.png
+│   ├── classification_report_logistic_regression_movement_libras.txt
+│   ├── confusion_matrix_rnn_movement_libras_1.png
+│   ├── classification_report_rnn_movement_libras_1.txt
+│   ├── confusion_matrix_transformer_movement_libras_1.png
+│   ├── classification_report_transformer_movement_libras_1.txt
+│   ├── confusion_matrix_svm_movement_libras_1.png
+│   ├── classification_report_svm_movement_libras_1.txt
+│   ├── confusion_matrix_random_forest_movement_libras_1.png
+│   ├── classification_report_random_forest_movement_libras_1.txt
+│   ├── confusion_matrix_logistic_regression_movement_libras_1.png
+│   ├── classification_report_logistic_regression_movement_libras_1.txt
+│   ├── confusion_matrix_rnn_movement_libras_5.png
+│   ├── classification_report_rnn_movement_libras_5.txt
+│   ├── confusion_matrix_transformer_movement_libras_5.png
+│   ├── classification_report_transformer_movement_libras_5.txt
+│   ├── confusion_matrix_svm_movement_libras_5.png
+│   ├── classification_report_svm_movement_libras_5.txt
+│   ├── confusion_matrix_random_forest_movement_libras_5.png
+│   ├── classification_report_random_forest_movement_libras_5.txt
+│   ├── confusion_matrix_logistic_regression_movement_libras_5.png
+│   ├── classification_report_logistic_regression_movement_libras_5.txt
+│   ├── confusion_matrix_rnn_movement_libras_8.png
+│   ├── classification_report_rnn_movement_libras_8.txt
+│   ├── confusion_matrix_transformer_movement_libras_8.png
+│   ├── classification_report_transformer_movement_libras_8.txt
+│   ├── confusion_matrix_svm_movement_libras_8.png
+│   ├── classification_report_svm_movement_libras_8.txt
+│   ├── confusion_matrix_random_forest_movement_libras_8.png
+│   ├── classification_report_random_forest_movement_libras_8.txt
+│   ├── confusion_matrix_logistic_regression_movement_libras_8.png
+│   ├── classification_report_logistic_regression_movement_libras_8.txt
+│   ├── confusion_matrix_rnn_movement_libras_9.png
+│   ├── classification_report_rnn_movement_libras_9.txt
+│   ├── confusion_matrix_transformer_movement_libras_9.png
+│   ├── classification_report_transformer_movement_libras_9.txt
+│   ├── confusion_matrix_svm_movement_libras_9.png
+│   ├── classification_report_svm_movement_libras_9.txt
+│   ├── confusion_matrix_random_forest_movement_libras_9.png
+│   ├── classification_report_random_forest_movement_libras_9.txt
+│   ├── confusion_matrix_logistic_regression_movement_libras_9.png
+│   ├── classification_report_logistic_regression_movement_libras_9.txt
+│   ├── confusion_matrix_rnn_movement_libras_10.png
+│   ├── classification_report_rnn_movement_libras_10.txt
+│   ├── confusion_matrix_transformer_movement_libras_10.png
+│   ├── classification_report_transformer_movement_libras_10.txt
+│   ├── confusion_matrix_svm_movement_libras_10.png
+│   ├── classification_report_svm_movement_libras_10.txt
+│   ├── confusion_matrix_random_forest_movement_libras_10.png
+│   ├── classification_report_random_forest_movement_libras_10.txt
+│   ├── confusion_matrix_logistic_regression_movement_libras_10.png
+│   └── classification_report_logistic_regression_movement_libras_10.txt
 └── docs/
     └── methodology_details.md
 ```
