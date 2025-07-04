@@ -112,8 +112,7 @@ Para a tarefa de classificação de séries temporais de movimentos de LIBRAS, a
 
 *   **Justificativa:** Dada a natureza sequencial e a complexidade dos dados (movimentos de LIBRAS), as Redes Neurais Recorrentes (RNNs), especialmente as variantes LSTM (Long Short-Term Memory), são a escolha mais natural e potente. Elas são projetadas para processar dados onde a ordem e as dependências temporais são cruciais, o que é exatamente o caso de uma sequência de movimentos.
 *   **Implementação:** Utilizaremos a API Keras (TensorFlow).
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 15: "Processing Sequences Using RNNs and CNNs", Capítulo 11: "Training Deep Neural Networks") e *DeepLearningArchitetures.pdf* (Section 12.2: "Recurrent Neural Networks", Section 17: "Recurrent Neural Networks", Section 12.2.6: "Long-Term Dependencies and LSTM RNN").
-
+  
 #### b. Transformer
 
 *   **Justificativa:** A arquitetura Transformer revolucionou o processamento de sequências, superando as RNNs em muitas tarefas devido à sua capacidade de processamento paralelo e à eficácia dos mecanismos de atenção para capturar dependências de longo alcance. Embora o dataset LIBRAS seja de coordenadas de movimento (séries temporais) e não texto, a arquitetura Transformer, com sua capacidade de capturar dependências de longo alcance via mecanismos de atenção, é perfeitamente aplicável e tem se mostrado eficaz em diversas modalidades de dados sequenciais. Para o dataset LIBRAS Movement, cada frame (com seus 90 atributos de coordenadas) pode ser tratado como um "token" em uma sequência de 45 "tokens". A habilidade do Transformer de "olhar" para todos os frames simultaneamente (via self-attention) pode ser crucial para entender a totalidade e o contexto de um movimento complexo.
@@ -154,10 +153,45 @@ Para a classificação multiclasse dos movimentos de LIBRAS, as seguintes métri
 *   **F1-Score**
 *   **Report de Classificação Completo**
 
-*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 3: "Performance Measures", "Confusion Matrices", "Precision and Recall").
-
 ## Estrutura do Repositório GitHub
 
 ```
-. ├── README.md ├── requirements.txt ├── data/ │ ├── movement_libras.data │ ├── movement_libras_1.data │ ├── movement_libras_5.data │ ├── movement_libras_8.data │ ├── movement_libras_9.data │ ├── movement_libras_10.data │ └── movement_libras.names ├── notebooks/ │ ├── 01_data_exploration.ipynb │ └── 02_model_prototyping.ipynb ├── src/ │ ├── init.py │ ├── data_loader.py │ ├── models.py │ ├── train.py │ ├── evaluate.py │ └── utils.py ├── trained_models/ │ ├── rnn_model_movement_libras.h5 │ ├── transformer_model_movement_libras.h5 # Novo exemplo de modelo Transformer │ ├── svm_model_movement_libras_1.pkl │ └── # ... outros modelos e datasets ├── results/ │ ├── confusion_matrix_rnn_movement_libras.png │ ├── confusion_matrix_transformer_movement_libras.png # Novo exemplo de resultado │ └── classification_report_svm_movement_libras_1.txt │ └── # ... outros resultados └── docs/ └── methodology_details.md
+Com certeza! A indentação é fundamental para a clareza visual da estrutura de diretórios em Markdown. O que você me passou está em uma única linha, o que impede a renderização correta.
 
+Aqui está a correção da indentação para a estrutura de diretórios, pronta para ser usada no seu `README.md` dentro de um bloco de código:
+
+```markdown
+.
+├── README.md
+├── requirements.txt
+├── data/
+│   ├── movement_libras.data
+│   ├── movement_libras_1.data
+│   ├── movement_libras_5.data
+│   ├── movement_libras_8.data
+│   ├── movement_libras_9.data
+│   ├── movement_libras_10.data
+│   └── movement_libras.names
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   └── 02_model_prototyping.ipynb
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── models.py
+│   ├── train.py
+│   ├── evaluate.py
+│   └── utils.py
+├── trained_models/
+│   ├── rnn_model_movement_libras.h5
+│   ├── transformer_model_movement_libras.h5
+│   ├── svm_model_movement_libras_1.pkl
+│   └── # ... outros modelos e datasets
+├── results/
+│   ├── confusion_matrix_rnn_movement_libras.png
+│   ├── confusion_matrix_transformer_movement_libras.png
+│   └── classification_report_svm_movement_libras_1.txt
+│   └── # ... outros resultados
+└── docs/
+    └── methodology_details.md
+```
