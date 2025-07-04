@@ -108,11 +108,16 @@ A metodologia seguirá um pipeline padrão e robusto de Machine Learning, adapta
 
 Para a tarefa de classificação de séries temporais de movimentos de LIBRAS, as seguintes técnicas do seu conteúdo programático são as mais adequadas e serão exploradas:
 
-### 1. Redes Neurais e Deep Learning
+#### a. Redes Neurais Recorrentes (RNNs)
 
 *   **Justificativa:** Dada a natureza sequencial e a complexidade dos dados (movimentos de LIBRAS), as Redes Neurais Recorrentes (RNNs), especialmente as variantes LSTM (Long Short-Term Memory), são a escolha mais natural e potente. Elas são projetadas para processar dados onde a ordem e as dependências temporais são cruciais, o que é exatamente o caso de uma sequência de movimentos.
 *   **Implementação:** Utilizaremos a API Keras (TensorFlow).
-*   **Referência:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 15: "Processing Sequences Using RNNs and CNNs", Capítulo 11: "Training Deep Neural Networks") e *DeepLearningArchitetures.pdf* (Section 12.2: "Recurrent Neural Networks", Section 17: "Recurrent Neural Networks", Section 12.2.6: "Long-Term Dependencies and LSTM RNN").
+*   **Conexão com o Material Anexado:** *Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow.pdf* (Capítulo 15: "Processing Sequences Using RNNs and CNNs", Capítulo 11: "Training Deep Neural Networks") e *DeepLearningArchitetures.pdf* (Section 12.2: "Recurrent Neural Networks", Section 17: "Recurrent Neural Networks", Section 12.2.6: "Long-Term Dependencies and LSTM RNN").
+
+#### b. Transformer
+
+*   **Justificativa:** A arquitetura Transformer revolucionou o processamento de sequências, superando as RNNs em muitas tarefas devido à sua capacidade de processamento paralelo e à eficácia dos mecanismos de atenção para capturar dependências de longo alcance. Embora o dataset LIBRAS seja de coordenadas de movimento (séries temporais) e não texto, a arquitetura Transformer, com sua capacidade de capturar dependências de longo alcance via mecanismos de atenção, é perfeitamente aplicável e tem se mostrado eficaz em diversas modalidades de dados sequenciais. Para o dataset LIBRAS Movement, cada frame (com seus 90 atributos de coordenadas) pode ser tratado como um "token" em uma sequência de 45 "tokens". A habilidade do Transformer de "olhar" para todos os frames simultaneamente (via self-attention) pode ser crucial para entender a totalidade e o contexto de um movimento complexo.
+*   **Implementação:** Implementaremos uma arquitetura Transformer simplificada (focando no Encoder) utilizando Keras/TensorFlow. Isso envolverá a criação de uma camada de "embedding" para cada frame (mapeando os 90 atributos para um espaço de maior dimensão) e a adição de codificação posicional para preservar a ordem temporal dos frames.
 
 ### 2. Modelos Não-Lineares: Support Vector Machines (SVMs)
 
@@ -154,35 +159,5 @@ Para a classificação multiclasse dos movimentos de LIBRAS, as seguintes métri
 ## Estrutura do Repositório GitHub
 
 ```
-├── README.md # Documentação principal do projeto: visão geral, setup, execução, resultados, conclusões. 
-├── requirements.txt # Lista de todas as dependências Python necessárias para o projeto. 
-├── data/ # Diretório para hospedar os datasets. 
-│ ├── movement_libras.data # O dataset principal. 
-│ ├── movement_libras_1.data # Sub-dataset 1. 
-│ ├── movement_libras_5.data # Sub-dataset 5. 
-│ ├── movement_libras_8.data # Sub-dataset 8. 
-│ ├── movement_libras_9.data # Sub-dataset 9. 
-│ ├── movement_libras_10.data # Sub-dataset 10. 
-│ └── movement_libras.names # O arquivo de metadados do dataset. 
-├── notebooks/ # Jupyter Notebooks para exploração de dados, prototipagem de modelos e análises exploratórias. 
-│ ├── 01_data_exploration.ipynb # Análise exploratória inicial do dataset (visualização, estatísticas). 
-│ └── 02_model_prototyping.ipynb # Prototipagem rápida e testes de modelos. 
-├── src/ # Código-fonte principal do projeto, organizado em módulos. 
-│ ├── init.py # Marca 'src' como um pacote Python. 
-│ ├── data_loader.py # Funções para carregar, pré-processar e dividir o dataset. 
-│ ├── models.py # Definições das arquiteturas dos modelos (RNNs, SVMs, Random Forests, Regressão Logística). 
-│ ├── train.py # Script para treinar os modelos. 
-│ ├── evaluate.py # Script para avaliar os modelos treinados. 
-│ └── utils.py # Funções utilitárias diversas (ex: custom metrics, plotting functions). 
-├── trained_models/ # Diretório para salvar os modelos treinados e serializados. 
-│ ├── rnn_model_movement_libras.h5 # Exemplo: Modelo RNN treinado no dataset completo. 
-│ ├── svm_model_movement_libras_1.pkl # Exemplo: Modelo SVM treinado no sub-dataset 1. 
-│ └── # ... outros modelos e datasets 
-├── results/ # Diretório para salvar os resultados das avaliações (gráficos, relatórios de texto). 
-│ ├── confusion_matrix_rnn_movement_libras.png 
-│ └── classification_report_svm_movement_libras_1.txt 
-│ └── # ... outros resultados 
-└── docs/ # Documentação adicional, relatórios mais detalhados, diagramas, etc. 
-└── methodology_details.md # Detalhes aprofundados da metodologia, justificativas de escolhas de modelo´
-
+├── README.md ├── requirements.txt ├── data/ │ ├── movement_libras.data │ ├── movement_libras_1.data │ ├── movement_libras_5.data │ ├── movement_libras_8.data │ ├── movement_libras_9.data │ ├── movement_libras_10.data │ └── movement_libras.names ├── notebooks/ │ ├── 01_data_exploration.ipynb │ └── 02_model_prototyping.ipynb ├── src/ │ ├── init.py │ ├── data_loader.py │ ├── models.py │ ├── train.py │ ├── evaluate.py │ └── utils.py ├── trained_models/ │ ├── rnn_model_movement_libras.h5 │ ├── transformer_model_movement_libras.h5 # Novo exemplo de modelo Transformer │ ├── svm_model_movement_libras_1.pkl │ └── # ... outros modelos e datasets ├── results/ │ ├── confusion_matrix_rnn_movement_libras.png │ ├── confusion_matrix_transformer_movement_libras.png # Novo exemplo de resultado │ └── classification_report_svm_movement_libras_1.txt │ └── # ... outros resultados └── docs/ └── methodology_details.md
 
