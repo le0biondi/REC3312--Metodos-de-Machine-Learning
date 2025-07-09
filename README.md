@@ -3,7 +3,7 @@
 **Disciplina:** REC3312 - Métodos de Machine Learning
 **Professor:** Dr. Marcio Poletti Laurini
 **Universidade:** Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto (FEA-RP), Universidade de São Paulo (USP)
-**Aluno(a):** Leonardo S. Biondi
+**Aluno:** Leonardo S. Biondi
 **Data:** 09/07/2025
 
 ---
