@@ -339,10 +339,10 @@ A implementação em CPU, embora mais lenta, valida a acessibilidade da soluçã
 ## **6. Referências**
 
 *   Pawar, S. S., Purnapatre, I. N., & Bagal, N. S. (2024). A Machine Learning Approach to Accurate Gym Exercise Form Detection Using MediaPipe. *International Journal for Research in Applied Science & Engineering Technology (IJRASET)*, 12(VIII), 1117-1120.
-*   Google MediaPipe: Pose. Disponível em: [https://google.github.io/mediapipe/solutions/pose](https://google.github.io/mediapipe/solutions/pose). Acesso em: [Data do acesso].
-*   Abdillah, H. (n.d.). *Workout exercises images*. Kaggle. Disponível em: [https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images](https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images). Acesso em: [Data do acesso].
+*   Google MediaPipe: Pose. Disponível em: [https://google.github.io/mediapipe/solutions/pose](https://google.github.io/mediapipe/solutions/pose). Acesso em: 09/07/2025.
+*   Abdillah, H. (n.d.). *Workout exercises images*. Kaggle. Disponível em: [https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images](https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images). Acesso em: 09/07/2025..
 *   Laurini, M. P. (n.d.). *Currículo Lattes*. Disponível em: [https://www.fearp.usp.br/institucional/docentes/economia/3180-marcio-poletti-laurini.html](https://www.fearp.usp.br/institucional/docentes/economia/3180-marcio-poletti-laurini.html). Acesso em: [Data do acesso].
-*   USP Digital (n.d.). *Programa da Disciplina REC3312*. Disponível em: [https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=REC3312&verdis=2](https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=REC3312&verdis=2). Acesso em: [Data do acesso].
+*   USP Digital (n.d.). *Programa da Disciplina REC3312*. Disponível em: [https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=REC3312&verdis=2](https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis=REC3312&verdis=2). Acesso em: 09/07/2025.
 *   Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., ... & Duchesnay, É. (2011). Scikit-learn: Machine Learning in Python. *Journal of Machine Learning Research*, 12, 2825-2830. (Referência para Scikit-learn).
 
 ---
@@ -352,7 +352,6 @@ A implementação em CPU, embora mais lenta, valida a acessibilidade da soluçã
 Nesta seção, inclua capturas de tela e/ou visualizações que demonstrem o funcionamento do seu sistema. Isso é crucial para ilustrar os resultados.
 
 *   **Figura A.1: Interface da Aplicação em Tempo Real**
-   *   **Figura A.1: Interface da Aplicação em Tempo Real**
     ![Interface da aplicação em tempo real mostrando detecção de pose e feedback.](screenshots/interface_aplicacao.png)
  
 
