@@ -3,7 +3,7 @@
 **Disciplina:** REC3312 - Métodos de Machine Learning
 **Professor:** Dr. Marcio Poletti Laurini
 **Universidade:** Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto (FEA-RP), Universidade de São Paulo (USP)
-**Aluno(a):** Leonardo Biondi
+**Aluno(a):** Leonardo S. Biondi
 **Data:** 09/07/2025
 
 ---
@@ -20,7 +20,7 @@ A prática de exercícios físicos é fundamental para a saúde e o bem-estar. N
 
 Este projeto propõe uma solução tecnológica para democratizar o acesso a um feedback de qualidade sobre a forma de execução de exercícios. Utilizando princípios e métodos explorados na disciplina **REC3312 - Métodos de Machine Learning**, ministrada pelo **Prof. Dr. Marcio Poletti Laurini** na FEA-RP/USP, desenvolvemos um assistente virtual capaz de analisar a pose do usuário em tempo real e identificar desvios na técnica.
 
-O foco principal do desenvolvimento reside na aplicabilidade prática em cenários com hardware comum, como notebooks sem placas gráficas dedicadas. Para tal, o projeto foi otimizado para operar exclusivamente em processadores (CPUs), garantindo que a tecnologia possa ser amplamente utilizada, superando barreiras de acesso a equipamentos de alto custo. Além disso, para aprofundar o estudo dos "Métodos de Machine Learning", o projeto agora inclui a **comparação do desempenho de diferentes modelos de classificação**, explorando abordagens como Redes Neurais Profundas, Random Forest e Regressão Logística.
+O foco principal do desenvolvimento reside na aplicabilidade prática em cenários com hardware comum, como notebooks sem placas gráficas dedicadas. Para tal, o projeto foi otimizado para operar exclusivamente em processadores (CPUs), garantindo que a tecnologia possa ser amplamente utilizada, superando barreiras de acesso a equipamentos de alto custo. Além disso, para aprofundar o estudo dos \"Métodos de Machine Learning\", o projeto agora inclui a **comparação do desempenho de diferentes modelos de classificação**, explorando abordagens como Redes Neurais Profundas, Random Forest e Regressão Logística.
 
 **Referências da Disciplina e Professor:**
 *   **Currículo Lattes do Prof. Dr. Marcio Poletti Laurini:** [https://www.fearp.usp.br/institucional/docentes/economia/3180-marcio-poletti-laurini.html](https://www.fearp.usp.br/institucional/docentes/economia/3180-marcio-poletti-laurini.html)
@@ -81,29 +81,29 @@ Para garantir a reprodutibilidade e evitar conflitos de dependências, o projeto
 
 O sucesso de qualquer modelo de Machine Learning depende diretamente da qualidade e representatividade dos dados de treinamento.
 
-*   **Dataset:** Utilizamos o dataset \"Workout exercises images\" (slug: `hasyimabdillah/workoutexercises-images`) disponível no Kaggle. Este dataset contém imagens de diversos exercícios (agachamento, levantamento terra, bíceps curl, etc.).
+*   **Dataset:** Utilizamos o dataset \\\"Workout exercises images\\\" (slug: `hasyimabdillah/workoutexercises-images`) disponível no Kaggle. Este dataset contém imagens de diversos exercícios (agachamento, levantamento terra, bíceps curl, etc.).
 *   **Download Programático:** O script inclui uma função para baixar e descompactar o dataset diretamente do Kaggle, exigindo apenas que as credenciais da API do Kaggle estejam configuradas corretamente no arquivo `~/.kaggle/kaggle.json`.
 *   **Estimativa de Pose com MediaPipe:** Para cada imagem do dataset, a biblioteca **MediaPipe (Google)** é utilizada para detectar 33 *landmarks* (pontos chave) do corpo humano (como ombros, cotovelos, joelhos, quadris, etc.). Essas landmarks fornecem as coordenadas (x, y) de cada articulação, que são suficientes para os cálculos de ângulo em 2D.
 *   **Engenharia de Features (Cálculo de Ângulos):** A partir das coordenadas das landmarks, calculamos ângulos específicos do corpo. Esses ângulos são features numéricas que descrevem a postura do indivíduo. Por exemplo, o ângulo do joelho é calculado entre o quadril, o joelho e o tornozelo. A fórmula utilizada para calcular o ângulo entre três pontos (A, B, C, onde B é o vértice) é baseada no produto escalar de vetores:
 
-    $$ \\theta = \\arccos\\left(\\frac{\\vec{BA} \\cdot \\vec{BC}}{|\\vec{BA}| \\cdot |\\vec{BC}|}\\right) $$
+    $$ \\\\theta = \\\\arccos\\\\left(\\\\frac{\\\\vec{BA} \\\\cdot \\\\vec{BC}}{|\\\\vec{BA}| \\\\cdot |\\\\vec{BC}|}\\\\right) $$
 
-    Onde $\\vec{BA} = A - B$ e $\\vec{BC} = C - B$. Os ângulos extraídos incluem: cotovelos, ombros, joelhos e quadris.
+    Onde $\\\\vec{BA} = A - B$ e $\\\\vec{BC} = C - B$. Os ângulos extraídos incluem: cotovelos, ombros, joelhos e quadris.
 *   **Normalização de Features:** As features extraídas são normalizadas usando `MinMaxScaler` e salvas no diretório `models/` usando `joblib`, garantindo que os modelos sejam treinados e a inferência seja feita em dados escalados de forma consistente.
 *   **Codificação de Rótulos:** Os rótulos de exercícios são codificados usando `LabelEncoder` e convertidos para formato one-hot (`to_categorical`) para compatibilidade com modelos de classificação. O `LabelEncoder` é salvo usando `joblib`.
 *   **Amostragem de Dados:** O `SAMPLE_PER_EXERCISE` foi ajustado para `400` para processar um número maior de imagens por tipo de exercício, visando um dataset de treinamento mais robusto.
 
 ### **3.3 Geração Sintética de Erros de Postura (Baseado em Limiares)**
 
-Uma limitação comum em projetos de detecção de forma é a escassez de dados rotulados de \"forma incorreta\". Para contornar isso e enriquecer o dataset de treinamento, implementamos um módulo de geração sintética de erros, conforme abordado no artigo de Pawar et al. (que também utiliza regras baseadas em limiares para detecção de erros).
+Uma limitação comum em projetos de detecção de forma é a escassez de dados rotulados de \\\"forma incorreta\\\". Para contornar isso e enriquecer o dataset de treinamento, implementamos um módulo de geração sintética de erros, conforme abordado no artigo de Pawar et al. (que também utiliza regras baseadas em limiares para detecção de erros).
 
-*   **Princípio:** Uma porcentagem das poses inicialmente consideradas \"corretas\" (extraídas do dataset original) são artificialmente perturbadas para simular desvios comuns de postura, tornando-as \"incorretas\" para fins de treinamento.
+*   **Princípio:** Uma porcentagem das poses inicialmente consideradas \\\"corretas\\\" (extraídas do dataset original) são artificialmente perturbadas para simular desvios comuns de postura, tornando-as \\\"incorretas\\\" para fins de treinamento.
 *   **Regras Específicas por Exercício:** A função `synthesize_incorrect_form` aplica perturbações em ângulos chave com base no tipo de exercício:
     *   **Agachamento (`squat`):** Aumenta o ângulo dos joelhos (simulando falta de profundidade).
-    *   **Levantamento Terra (`deadlift`):** Diminui o ângulo dos quadris (simulando costas arredondadas ou tronco menos inclinado).
+    *   **Levantamento Terra (`deadlift`):T** Diminui o ângulo dos quadris (simulando costas arredondadas ou tronco menos inclinado).
     *   **Rosca Bíceps (`bicep curl`):** Diminui o ângulo do cotovelo na extensão (simulando extensão incompleta).
 *   **Desvio Aleatório:** A magnitude da perturbação angular é aleatória (entre 15 e 35 graus), garantindo variabilidade nos exemplos de erro.
-*   **Balanceamento do Dataset:** Aproximadamente 40% das amostras de cada exercício são sinteticamente transformadas em \"incorretas\", ajudando a balancear as classes \"correta\" e \"incorreta\" no dataset de treinamento.
+*   **Balanceamento do Dataset:** Aproximadamente 40% das amostras de cada exercício são sinteticamente transformadas em \\\"incorretas\\\", ajudando a balancear as classes \\\"correta\\\" e \\\"incorreta\\\" no dataset de treinamento.
 
 Essa abordagem permite que o modelo aprenda padrões de erros realistas, sem a necessidade de coletar extensos dados de pessoas executando exercícios incorretamente.
 
@@ -122,7 +122,7 @@ Esta adaptação garante que o projeto seja acessível a um público mais amplo,
 
 ### **3.5 Arquitetura e Comparação de Modelos de Machine Learning**
 
-Para demonstrar a aplicação de diversos "Métodos de Machine Learning", o projeto treina e compara três tipos de modelos para a tarefa de classificação de exercícios, e um deles também para a forma.
+Para demonstrar a aplicação de diversos \"Métodos de Machine Learning\", o projeto treina e compara três tipos de modelos para a tarefa de classificação de exercícios, e um deles também para a forma.
 
 **Modelos Implementados:**
 
@@ -172,7 +172,7 @@ Após o treinamento, o modelo selecionado (o MLP Keras) é utilizado para fornec
     *   As landmarks detectadas pelo MediaPipe e as conexões entre elas são desenhadas sobre a imagem, permitindo ao usuário visualizar sua própria pose.
     *   Texto informativo é exibido na tela, mostrando o exercício detectado (com sua confiança) e o status da forma (com cores distintas).
     *   A cor do texto do feedback muda para indicar o status da forma (verde para correto, vermelho para incorreto).
-    *   Uma sugestão genérica (\"Ajuste sua postura!\") é adicionada se a forma for classificada como incorreta. Se um modelo Scikit-learn fosse escolhido, a forma seria assumida como correta.
+    *   Uma sugestão genérica (\\\"Ajuste sua postura!\\\") é adicionada se a forma for classificada como incorreta. Se um modelo Scikit-learn fosse escolhido, a forma seria assumida como correta.
 
 ---
 
@@ -180,16 +180,43 @@ Após o treinamento, o modelo selecionado (o MLP Keras) é utilizado para fornec
 
 Este guia detalha os passos necessários para configurar o ambiente e executar o script.
 
-### **4.1 Configuração Inicial (Pré-requisitos)**
+### **4.1 Estrutura do Repositório Atualizada**
+
+A organização dos arquivos no diretório do projeto é a seguinte:
+
+```
+gym-exercise-corrector/           # Novo nome para o diretório raiz do projeto
+├── v0/                           # Pasta com modelo inicial simplificado (se houver)
+├──screenshots                    #pasta com screenshots de execução
+├── gym_exercise_corrector.py     # Novo nome para o seu script principal
+├── .kaggle/                       # Diretório para as credenciais do Kaggle
+│   └── kaggle.json               # Arquivo com suas credenciais do Kaggle
+├── models/                       # Diretório para salvar modelos e scalers (criados pelo script)
+│   ├── best_mlp_model.h5         # Modelo Keras
+│   ├── best_random_forest_model.pkl # Modelo Random Forest
+│   ├── best_logistic_regression_model.pkl # Modelo Logistic Regression
+│   ├── exercise_encoder.pkl      # LabelEncoder salvo
+│   └── feature_scaler.pkl        # MinMaxScaler salvo
+└── workout-exercises-images/     # Diretório raiz do dataset baixado do Kaggle
+    ├── bicep curl/               # Subpastas de exercícios
+    │   ├── img_001.jpg
+    │   └── ...
+    ├── deadlift/
+    │   └── ...
+    └── squat/
+        └── ...
+```
+
+### **4.2 Configuração Inicial (Pré-requisitos)**
 
 *   **Python:** Verifique se você tem Python 3.9+ instalado. Recomenda-se a instalação do Anaconda ou Miniconda para facilitar o gerenciamento de ambientes e pacotes.
 *   **Conexão à Internet:** Necessária para baixar o dataset e as bibliotecas.
 *   **Webcam:** Uma webcam funcional é necessária para a detecção em tempo real.
 
-### **4.2 Configuração do Ambiente Virtual**
+### **4.3 Configuração do Ambiente Virtual**
 
 1.  **Abrir o Terminal/Anaconda Prompt:**
-    *   No Windows, procure por \"Anaconda Prompt\" no menu Iniciar.
+    *   No Windows, procure por \\\"Anaconda Prompt\\\" no menu Iniciar.
     *   No macOS/Linux, abra seu terminal.
 
 2.  **Navegar até a pasta do projeto:**
@@ -212,30 +239,30 @@ Este guia detalha os passos necessários para configurar o ambiente e executar o
     pip install --upgrade h5py Keras joblib
     ```
 
-### **4.3 Configuração da API do Kaggle**
+### **4.4 Configuração da API do Kaggle**
 
 O script tenta baixar o dataset do Kaggle programaticamente. Para isso, ele precisa de suas credenciais da API do Kaggle.
 
 1.  **Gerar Chave API do Kaggle:**
     *   Vá para o site do Kaggle e faça login.
-    *   Clique na sua foto de perfil no canto superior direito e selecione \"Account\".
-    *   Role para baixo até a seção \"API\" e clique em \"Create New API Token\". Um arquivo `kaggle.json` será baixado.
+    *   Clique na sua foto de perfil no canto superior direito e selecione \\\"Account\\\".
+    *   Role para baixo até a seção \\\"API\\\" e clique em \\\"Create New API Token\\\". Um arquivo `kaggle.json` será baixado.
     *   Abra este arquivo `kaggle.json` com um editor de texto e copie seu `username` e `key`.
 
 2.  **Configurar Credenciais no Script:**
     No script (`gym_exercise_corrector.py`, na seção `2. Configurações Iniciais e Verificação de Hardware`), substitua os placeholders pelas suas credenciais:
     ```python
     kaggle_creds = {
-        "username": "SEU_USERNAME_KAGGLE", # Substitua pelo seu username do Kaggle
-        "key": "SUA_CHAVE_KAGGLE" # Substitua pela sua chave API do Kaggle
+        \"username\": \"SEU_USERNAME_KAGGLE\", # Substitua pelo seu username do Kaggle
+        \"key\": \"SUA_CHAVE_KAGGLE\" # Substitua pela sua chave API do Kaggle
     }
     ```
     O script irá criar o arquivo `~/.kaggle/kaggle.json` automaticamente com estas credenciais.
 
 3.  **Aceitar Termos do Dataset:**
-    É crucial que você vá para a página do dataset no Kaggle ([https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images](https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images)) e aceite os termos de uso (geralmente um botão ou checkbox \"I understand and accept\" ou \"Download\"). Caso contrário, o download falhará com um erro 403.
+    É crucial que você vá para a página do dataset no Kaggle ([https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images](https://www.kaggle.com/datasets/hasyimabdillah/workoutexercises-images)) e aceite os termos de uso (geralmente um botão ou checkbox \\\"I understand and accept\\\" ou \\\"Download\\\"). Caso contrário, o download falhará com um erro 403.
 
-### **4.4 Execução do Script**
+### **4.5 Execução do Script**
 
 1.  **Iniciar Jupyter Notebook:**
     Com o ambiente `gym_pose_env` ativado no terminal, execute:
@@ -251,7 +278,7 @@ O script tenta baixar o dataset do Kaggle programaticamente. Para isso, ele prec
     No notebook aberto, vá em `Kernel > Change kernel` e selecione o ambiente `gym_pose_env` (ou o nome que você deu ao seu ambiente Conda).
 
 4.  **Executar as Células:**
-    Execute as células do notebook sequencialmente (clicando em \"Run\" ou `Shift + Enter`).
+    Execute as células do notebook sequencialmente (clicando em \\\"Run\\\" ou `Shift + Enter`).
     *   A primeira execução realizará o download do dataset (se ainda não existir), a extração de features (processo intenso de CPU que pode levar tempo) e o treinamento/comparação dos modelos.
     *   As células finais ativarão sua webcam para a detecção em tempo real. Pressione `Q` na janela de visualização para sair.
 
@@ -283,7 +310,7 @@ O script tenta baixar o dataset do Kaggle programaticamente. Para isso, ele prec
         *   **Regressão Logística:** 0.3393
     *   Isso indica que o **Random Forest obteve a melhor acurácia** para a classificação do tipo de exercício dentre os modelos testados, enquanto a Regressão Logística apresentou o desempenho mais baixo.
 *   Classificar o tipo de exercício em andamento com base nas features de pose.
-*   Classificar a forma de execução como \"correta\" ou \"incorreta\" com base nos padrões aprendidos (pelo MLP Keras), incluindo os erros gerados sinteticamente. A acurácia de validação do MLP Keras para a classificação da forma foi de **0.6155**.
+*   Classificar a forma de execução como \\\"correta\\\" ou \\\"incorreta\\\" com base nos padrões aprendidos (pelo MLP Keras), incluindo os erros gerados sinteticamente. A acurácia de validação do MLP Keras para a classificação da forma foi de **0.6155**.
 *   Fornecer feedback visual em tempo real, indicando o exercício e o status da forma (com cores distintas).
 
 Apesar do Random Forest ter superado o MLP Keras na classificação isolada do tipo de exercício, o **MLP Keras é o modelo escolhido para a aplicação em tempo real** devido à sua capacidade única de fornecer **ambas as previsões (tipo de exercício E correção da forma) simultaneamente**. Esta funcionalidade dual é essencial para o objetivo principal do assistente de feedback de forma.
@@ -302,7 +329,7 @@ A implementação em CPU, embora mais lenta, valida a acessibilidade da soluçã
 
 *   **Otimização de Desempenho:** Explorar técnicas de otimização específicas para CPU (ex: quantização de modelos, bibliotecas mais otimizadas para inferência) ou integração com soluções de inferência em nuvem.
 *   **Expansão da Biblioteca de Exercícios e Erros:** Adicionar mais exercícios e refinar as regras de geração de erros sintéticos com base em feedback de especialistas.
-*   **Feedback Mais Detalhado:** Fornecer feedback específico sobre o tipo de erro (ex: \"Joelhos muito à frente\", \"Costas arredondadas\") em vez de apenas \"Ajuste sua postura!\".
+*   **Feedback Mais Detalhado:** Fornecer feedback específico sobre o tipo de erro (ex: \\\"Joelhos muito à frente\\\", \\\"Costas arredondadas\\\") em vez de apenas \\\"Ajuste sua postura!\\\".
 *   **Contagem de Repetições:** Implementar lógica para identificar o início e o fim de cada repetição.
 *   **Análise Temporal:** Avaliar a fluidez e a velocidade do movimento.
 *   **Interface do Usuário (GUI):** Desenvolver uma interface gráfica mais amigável.
@@ -325,23 +352,25 @@ A implementação em CPU, embora mais lenta, valida a acessibilidade da soluçã
 Nesta seção, inclua capturas de tela e/ou visualizações que demonstrem o funcionamento do seu sistema. Isso é crucial para ilustrar os resultados.
 
 *   **Figura A.1: Interface da Aplicação em Tempo Real**
-    *(Aqui, insira uma imagem da tela do seu computador com a webcam ativa, mostrando você (ou alguém) realizando um exercício, com as landmarks do MediaPipe desenhadas e o feedback textual visível (Ex: \"Exercício: Squat | Forma: Correta\").)*
+   *   **Figura A.1: Interface da Aplicação em Tempo Real**
+    ![Interface da aplicação em tempo real mostrando detecção de pose e feedback.](screenshots/interface_aplicacao.png)
+ 
 
 *   **Figura A.2: Exemplo de Detecção de Forma Correta**
-    *(Outra imagem clara mostrando uma pose específica do exercício com o feedback \"Forma Correta\" em verde.)*
+![imagem clara mostrando uma pose específica do exercício com o feedback.](screenshots/forma_correta.png)
 
 *   **Figura A.3: Exemplo de Detecção de Forma Incorreta**
-    *(Uma imagem clara mostrando uma pose específica do exercício com o feedback \"Forma Incorreta\" em vermelho, idealmente uma pose que ative as regras de erro sintético se possível.)*
+   ![imagem clara mostrando uma pose específica do exercício com o feedback baixo.](screenshots/forma_incorreta.png)
 
 *   **Figura A.4: Tabela Comparativa de Acurácias de Validação dos Modelos**
     *(Preenchida com os seus resultados)*
-    <table class="data-table">
+    <table class=\"data-table\">
       <thead>
         <tr>
-          <th scope="col">Modelo</th>
-          <th scope="col">Acurácia de Validação (Exercício)</th>
-          <th scope="col">Acurácia de Validação (Forma - Apenas MLP)</th>
-          <th scope="col">Notas</th>
+          <th scope=\"col\">Modelo</th>
+          <th scope=\"col\">Acurácia de Validação (Exercício)</th>
+          <th scope=\"col\">Acurácia de Validação (Forma - Apenas MLP)</th>
+          <th scope=\"col\">Notas</th>
         </tr>
       </thead>
       <tbody>
@@ -365,8 +394,5 @@ Nesta seção, inclua capturas de tela e/ou visualizações que demonstrem o fun
         </tr>
       </tbody>
     </table>
-
-*   **Figura A.5: Gráfico de Treinamento do Modelo MLP Keras (Opcional, mas recomendado)**
-    *(Gráficos gerados pelo TensorFlow/Keras mostrando a perda e a acurácia de treinamento e validação ao longo das épocas para as duas saídas (exercício e forma). Isso demonstra a convergência do modelo.)*
 
 ---
